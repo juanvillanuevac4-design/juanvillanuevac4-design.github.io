@@ -145,13 +145,13 @@ const APPS=[
 ];
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-$("#g-rec").innerHTML=APPS.filter(a=>a.pub).map(a=>`<article class="card"><h3>${a.ico} ${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="tags">${a.stack.map(s=>`<span class="tag">${s}</span>`).join("")}<span class="tag">Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button><a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir</a>${a.priv?'<span class="note">🔒 Acceso privado</span>':a.login?'<span class="note">🔒 Demo: <b>Invitado</b> / <b>Invitado</b></span>':''}${a.render?`<span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:''}</div></article>`).join("");
+$("#g-rec").innerHTML=APPS.filter(a=>a.pub).map(a=>`<article class="card"><h3>${a.ico} ${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="tags">${a.stack.map(s=>`<span class="tag">${s}</span>`).join("")}<span class="tag">Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button>${a.render?`<a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir</a>`:''}${a.priv?'<span class="note">🔒 Acceso privado</span>':a.login?'<span class="note">🔒 Demo: <b>Invitado</b> / <b>Invitado</b></span>':''}${a.render?`<span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:''}</div></article>`).join("");
 $("#g-col").innerHTML=APPS.map(a=>`<a href="${a.url}" target="_blank" rel="noopener"><span class="ico">${a.ico}</span><strong>${esc(a.t)}${a.login?' 🔒':''}</strong><small>${esc(a.who)}</small></a>`).join("");
 $("#y").textContent=new Date().getFullYear();
 // Resumen fotográfico: shots/<id>-1.webp y shots/<id>-2.webp
 const dlg=$("#dlg");
 document.addEventListener("click",e=>{const b=e.target.closest("[data-res]");if(!b)return;const a=APPS.find(x=>x.id===b.dataset.res);
-$("#d-t").textContent=a.ico+" "+a.t;$("#d-d").textContent=a.d;$("#d-s").innerHTML=a.stack.map(s=>`<span class="tag">${s}</span>`).join("");$("#d-a").href=a.url;
+$("#d-t").textContent=a.ico+" "+a.t;$("#d-d").textContent=a.d;$("#d-s").innerHTML=a.stack.map(s=>`<span class="tag">${s}</span>`).join("");$("#d-a").href=a.url;$("#d-a").hidden=!a.render;
 $("#d-i").innerHTML=Array.from({length:a.shots||2},(_,i)=>i+1).map(n=>`<figure class="shot" style="margin:0"><img src="shots/${a.id}-${n}.webp" alt="${esc(a.t)}, captura ${n}" loading="lazy" onerror="this.outerHTML='<div class=ph>📷 Captura ${n} próximamente</div>'"></figure>`).join("");
 dlg.showModal()});
 dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
