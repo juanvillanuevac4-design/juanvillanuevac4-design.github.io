@@ -56,7 +56,7 @@ h2{font-size:18px;margin:28px 0 12px}
 .quick a strong{font-size:15px}.quick a small{color:var(--mute)}
 .ico{font-size:22px}
 #install{display:none;margin:0 0 16px}
-.help{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 16px}
+.help{margin:16px 0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:14px;padding:4px 16px}
 .help summary{cursor:pointer;font-weight:600;padding:10px 0}
 .help ol{margin:8px 0 12px;padding-left:20px;font-size:14.5px;color:var(--mute)}
 .help li{margin:4px 0}
@@ -64,6 +64,18 @@ h2{font-size:18px;margin:28px 0 12px}
 .err b{display:block}
 .err i{font-style:normal;font-size:28px}
 code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:13px}
+dialog{border:0;border-radius:16px;padding:0;max-width:760px;width:calc(100% - 32px);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.dlg-h h3{margin:0;font-size:18px}
+.dlg-b{padding:16px;display:flex;flex-direction:column;gap:12px}
+.dlg-b p{margin:0;color:var(--mute)}
+.shots{display:grid;gap:12px}
+.shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.shot img{width:100%;display:block}
+.shot .ph{padding:40px 16px;text-align:center;color:var(--mute);font-size:14px}
+.btn2{background:transparent;border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;font:600 14px system-ui;cursor:pointer}
+.x{background:none;border:0;font-size:22px;cursor:pointer;color:var(--mute)}
 footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
 </style>
 </head>
@@ -98,10 +110,7 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
       <div class="kpi"><b>2</b><span>stacks: Apps Script y Python/Flask</span></div>
       <div class="kpi"><b>4</b><span>áreas: despacho, asistencia, flota, RR.HH.</span></div>
     </div>
-    <h2>Proyectos</h2>
-    <div class="kpi" style="margin-bottom:14px"><span>🔑 Acceso de prueba en todos los aplicativos</span><b style="font-size:17px">Usuario: Invitado · Contraseña: Invitado</b></div>
-    <div class="grid" id="g-rec"></div>
-    <details class="help"><summary>¿No puedes acceder a una app de Google?</summary>
+    <details class="help" open><summary>¿No puedes acceder a una app de Google?</summary>
       <p class="note">Si tienes varias cuentas de Google abiertas, puedes ver este error:</p>
       <div class="err"><i>⚠️</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
       <p class="note"><b>Solución:</b> abre el enlace en una ventana de incógnito.</p>
@@ -110,12 +119,14 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
         <li><b>Celular:</b> mantén presionado el enlace → «Abrir en pestaña de incógnito» (Chrome) o «Abrir en pestaña privada» (Safari).</li>
       </ol>
     </details>
+    <h2>Proyectos</h2>
+    <div class="kpi" style="margin-bottom:14px"><span>🔑 Acceso de prueba en todos los aplicativos</span><b style="font-size:17px">Usuario: Invitado · Contraseña: Invitado</b></div>
+    <div class="grid" id="g-rec"></div>
   </section>
 
   <section id="v-col" role="tabpanel" aria-labelledby="t-col" hidden>
     <p class="lead">Accesos directos a los aplicativos. Todos requieren iniciar sesión (🔒).</p>
-    <div class="quick" id="g-col"></div>
-    <details class="help"><summary>¿No puedes acceder a una app de Google?</summary>
+    <details class="help" open><summary>¿No puedes acceder a una app de Google?</summary>
       <p class="note">Si tienes varias cuentas de Google abiertas, puedes ver este error:</p>
       <div class="err"><i>⚠️</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
       <p class="note"><b>Solución:</b> abre el enlace en una ventana de incógnito.</p>
@@ -124,9 +135,11 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
         <li><b>Celular:</b> mantén presionado el enlace → «Abrir en pestaña de incógnito» (Chrome) o «Abrir en pestaña privada» (Safari).</li>
       </ol>
     </details>
+    <div class="quick" id="g-col"></div>
     <p class="note" style="margin-top:16px"><span class="dot wait"></span>Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</p>
   </section>
 </main>
+<dialog id="dlg"><div class="dlg-h"><h3 id="d-t"></h3><button class="x" aria-label="Cerrar" onclick="dlg.close()">✕</button></div><div class="dlg-b"><p id="d-d"></p><div class="tags" id="d-s"></div><div class="shots" id="d-i"></div><a class="btn" id="d-a" target="_blank" rel="noopener" style="align-self:flex-start">Abrir aplicativo</a></div></dialog>
 <footer>© <span id="y"></span> Juan Patricio Villanueva Canouet</footer>
 
 <script>
@@ -141,9 +154,16 @@ const APPS=[
 ];
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-$("#g-rec").innerHTML=APPS.filter(a=>a.pub).map(a=>`<article class="card"><h3>${a.ico} ${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="tags">${a.stack.map(s=>`<span class="tag">${s}</span>`).join("")}<span class="tag">Usuario: ${esc(a.who)}</span></div><div class="act"><a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir</a>${a.login?'<span class="note">🔒 Demo: <b>Invitado</b> / <b>Invitado</b></span>':''}${a.render?`<span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:''}</div></article>`).join("");
+$("#g-rec").innerHTML=APPS.filter(a=>a.pub).map(a=>`<article class="card"><h3>${a.ico} ${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="tags">${a.stack.map(s=>`<span class="tag">${s}</span>`).join("")}<span class="tag">Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button><a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir</a>${a.login?'<span class="note">🔒 Demo: <b>Invitado</b> / <b>Invitado</b></span>':''}${a.render?`<span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:''}</div></article>`).join("");
 $("#g-col").innerHTML=APPS.map(a=>`<a href="${a.url}" target="_blank" rel="noopener"><span class="ico">${a.ico}</span><strong>${esc(a.t)}${a.login?' 🔒':''}</strong><small>${esc(a.who)}</small></a>`).join("");
 $("#y").textContent=new Date().getFullYear();
+// Resumen fotográfico: shots/<id>-1.webp y shots/<id>-2.webp
+const dlg=$("#dlg");
+document.addEventListener("click",e=>{const b=e.target.closest("[data-res]");if(!b)return;const a=APPS.find(x=>x.id===b.dataset.res);
+$("#d-t").textContent=a.ico+" "+a.t;$("#d-d").textContent=a.d;$("#d-s").innerHTML=a.stack.map(s=>`<span class="tag">${s}</span>`).join("");$("#d-a").href=a.url;
+$("#d-i").innerHTML=[1,2].map(n=>`<figure class="shot" style="margin:0"><img src="shots/${a.id}-${n}.webp" alt="${esc(a.t)}, captura ${n}" loading="lazy" onerror="this.outerHTML='<div class=ph>📷 Captura ${n} próximamente</div>'"></figure>`).join("");
+dlg.showModal()});
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
 // Pestañas (recordar la última y permitir #colaboradores)
 const tabs={rec:[$("#t-rec"),$("#v-rec")],col:[$("#t-col"),$("#v-col")]};
 function show(k){for(const[n,[b,p]]of Object.entries(tabs)){b.setAttribute("aria-selected",n===k);p.hidden=n!==k}try{localStorage.setItem("tab",k)}catch(e){}}
@@ -154,7 +174,7 @@ show(start==="col"?"col":"rec");
 // Precalentar apps de Render (plan gratis duerme)
 APPS.filter(a=>a.render).forEach(a=>{const el=document.querySelector(`[data-st="${a.id}"]`);fetch(a.url,{mode:"no-cors",cache:"no-store"}).then(()=>{if(el)el.innerHTML='<span class="dot ok"></span>lista'}).catch(()=>{if(el)el.innerHTML='<span class="dot wait"></span>sin respuesta'})});
 // PWA
-if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
+if("serviceWorker"in navigator){navigator.serviceWorker.register("sw.js").then(r=>r.update());let rl=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!rl){rl=true;location.reload()}})}
 let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;$("#install").style.display="inline-block"});
 $("#install").onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;$("#install").style.display="none"};
 </script>
