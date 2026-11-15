@@ -96,7 +96,7 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
   </section>
 
   <section id="v-col" role="tabpanel" aria-labelledby="t-col" hidden>
-    <p class="lead">Accesos directos a los aplicativos. Los marcados con 🔒 piden iniciar sesión con tu cuenta Google o de la app.</p>
+    <p class="lead">Accesos directos a los aplicativos. Los marcados con 🔒 piden usuario y contraseña propios de la app.</p>
     <div class="quick" id="g-col"></div>
     <p class="note" style="margin-top:16px"><span class="dot wait"></span>Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</p>
   </section>
@@ -107,11 +107,11 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
 const APPS=[
  {id:"despacho",ico:"🚌",t:"Módulo de Despacho de Buses",d:"Registra y coordina la salida de buses del depósito en tiempo real para el área de Operaciones.",who:"Operaciones",stack:["Apps Script","Google Sheets"],url:"https://script.google.com/macros/s/AKfycbxB8OxHzGNqEWIZNoSDXW8fdOcOEnX9GST8_drUJ4GkFVWnAgsnPC3jijLm-A8j8RDB/exec",pub:true},
  {id:"flota",ico:"🗺️",t:"Control de Flota",d:"Distribución diaria de buses del depósito, con acceso por usuario.",who:"Operaciones",stack:["Python","Flask","Render"],url:"https://control-de-flota-jdpp.onrender.com/",pub:true,login:true,render:true},
- {id:"solicitudes",ico:"📝",t:"Solicitudes de Conductores",d:"Digitaliza y automatiza parcialmente las solicitudes de vacaciones y días administrativos hacia el Jefe de Operaciones.",who:"Jefe de Operaciones",stack:["Apps Script","Automatización"],url:"https://script.google.com/macros/s/AKfycbzVisnHmGPSx9HZapTOVoq8HFZBxu04YcMjxkbiF5vEiDjCE135snBFqQMEhwL_b9R4lA/exec",pub:true,login:true},
+ {id:"solicitudes",ico:"📝",t:"Solicitudes de Conductores",d:"Digitaliza y automatiza parcialmente las solicitudes de vacaciones y días administrativos hacia el Jefe de Operaciones.",who:"Jefe de Operaciones",stack:["Apps Script","Automatización"],url:"https://script.google.com/macros/s/AKfycbzVisnHmGPSx9HZapTOVoq8HFZBxu04YcMjxkbiF5vEiDjCE135snBFqQMEhwL_b9R4lA/exec",pub:true},
  {id:"asist-ops",ico:"✅",t:"Control de Asistencia · Operaciones",d:"Registro de asistencia del equipo de operaciones para la línea de supervisión.",who:"Línea de Supervisión",stack:["Apps Script","Google Sheets"],url:"https://script.google.com/macros/s/AKfycbyCAW7N0HxfRgv6Y134nxmrUF2agU6Nz_--wJyxFmITN8ST12tTR8QMsZk-XRiozPA/exec",pub:true},
  {id:"semaforo",ico:"🚦",t:"Semáforo PIE Andino",d:"Tablero tipo semáforo para seguimiento de indicadores.",who:"Gestión",stack:["Python","Flask","Render"],url:"https://semaforo-pie-andino.onrender.com/",pub:true,render:true},
  {id:"voucher",ico:"🎫",t:"Voucher Anexo 5 RED",d:"Generación de vouchers del Anexo 5 para la operación RED.",who:"Administración",stack:["Python","Flask","Render"],url:"https://voucher-anexo5-red.onrender.com/",pub:true,render:true},
- {id:"asist-cond",ico:"🕒",t:"Ingreso de Asistencia de Conductores",d:"Marcaje de asistencia de conductores.",who:"Conductores",stack:["Apps Script"],url:"https://script.google.com/macros/s/AKfycbxfc-sIITymHjaSTxtxY5xFLMaoZxHD9vHwLyGSdtPBd0ka8a2hZGSHmMtioxNd8wtx/exec",pub:false,login:true}
+ {id:"asist-cond",ico:"🕒",t:"Ingreso de Asistencia de Conductores",d:"Marcaje de asistencia de conductores.",who:"Conductores",stack:["Apps Script"],url:"https://script.google.com/macros/s/AKfycbxfc-sIITymHjaSTxtxY5xFLMaoZxHD9vHwLyGSdtPBd0ka8a2hZGSHmMtioxNd8wtx/exec",pub:true}
 ];
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
