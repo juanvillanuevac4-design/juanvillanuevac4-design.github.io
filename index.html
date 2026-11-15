@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Juan Villanueva · Portafolio</title>
+<meta name="description" content="Herramientas digitales para operaciones de transporte: despacho, asistencia, flota y solicitudes de personal.">
+<meta name="theme-color" content="#0f3d5e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JV Apps">
+<meta property="og:title" content="Juan Villanueva · Portafolio">
+<meta property="og:description" content="Aplicativos que digitalizan la operación de buses.">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14202b;--mute:#5b6875;--line:#e2e6ea;--pri:#0f3d5e;--acc:#f5b700;--ok:#1f8a4c;--warn:#b26a00}
+@media (prefers-color-scheme:dark){:root{--bg:#0d141b;--card:#16212b;--ink:#e8eef3;--mute:#9aa8b5;--line:#253441;--pri:#5fa8d9;--acc:#f5b700}}
+*{box-sizing:border-box}html,body{margin:0}
+body{font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+a{color:var(--pri)}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+header{background:var(--pri);color:#fff;padding:28px 0 0}
+@media (prefers-color-scheme:dark){header{background:#102a3d}}
+.top{display:flex;gap:16px;align-items:center}
+.av{width:64px;height:64px;border-radius:16px;background:var(--acc);color:#0f3d5e;font-weight:800;font-size:26px;display:grid;place-items:center;flex:none}
+h1{margin:0;font-size:24px;line-height:1.2}
+.sub{opacity:.85;margin:4px 0 0;font-size:15px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.links a{color:#fff;border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:999px;text-decoration:none;font-size:14px}
+.tabs{display:flex;gap:4px}
+.tabs button{flex:1;max-width:220px;border:0;background:rgba(255,255,255,.12);color:#fff;padding:12px;font:600 15px system-ui;border-radius:12px 12px 0 0;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--bg);color:var(--ink)}
+main{padding:24px 0 40px}
+section[hidden]{display:none}
+.lead{font-size:17px;color:var(--mute);margin:0 0 20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}
+.card p{margin:0;color:var(--mute);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--bg);border:1px solid var(--line);color:var(--mute)}
+.card .act{margin-top:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--pri);color:#fff;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:600;font-size:14px}
+@media (prefers-color-scheme:dark){.btn{color:#0d141b}}
+.note{font-size:12.5px;color:var(--mute)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block;margin-right:4px}
+.dot.ok{background:var(--ok)}.dot.wait{background:var(--warn)}
+h2{font-size:18px;margin:28px 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpi b{display:block;font-size:24px;color:var(--pri)}
+.kpi span{font-size:13px;color:var(--mute)}
+.quick{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.quick a{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px;min-height:96px}
+.quick a strong{font-size:15px}.quick a small{color:var(--mute)}
+.ico{font-size:22px}
+#install{display:none;margin:0 0 16px}
+footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="av" aria-hidden="true">JV</div>
+      <div>
+        <h1>Juan Villanueva Canouet</h1>
+        <p class="sub">Operaciones de transporte · Digitalización de procesos · Apps Script y Python</p>
+      </div>
+    </div>
+    <div class="links">
+      <a href="mailto:juanvillanuevac4@gmail.com">✉ Correo</a>
+      <a href="https://www.linkedin.com/in/juanvillanuevacanouet8043bb281" target="_blank" rel="noopener">in LinkedIn</a>
+      <a href="https://github.com/juanvillanuevac4-design" target="_blank" rel="noopener">⌥ GitHub</a>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" id="t-rec" aria-controls="v-rec" aria-selected="true">Portafolio</button>
+      <button role="tab" id="t-col" aria-controls="v-col" aria-selected="false">Acceso rápido</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <button id="install" class="btn">⬇ Instalar app</button>
+
+  <section id="v-rec" role="tabpanel" aria-labelledby="t-rec">
+    <p class="lead">Diseño y construyo aplicativos que digitalizan la operación diaria de una empresa de buses: despacho, asistencia del personal, control de flota y solicitudes administrativas. Todos están en uso por equipos de operaciones.</p>
+    <div class="kpis">
+      <div class="kpi"><b>7</b><span>aplicativos en producción</span></div>
+      <div class="kpi"><b>2</b><span>stacks: Apps Script y Python/Flask</span></div>
+      <div class="kpi"><b>4</b><span>áreas: despacho, asistencia, flota, RR.HH.</span></div>
+    </div>
+    <h2>Proyectos</h2>
+    <div class="grid" id="g-rec"></div>
+  </section>
+
+  <section id="v-col" role="tabpanel" aria-labelledby="t-col" hidden>
+    <p class="lead">Accesos directos a los aplicativos. Los marcados con 🔒 piden iniciar sesión con tu cuenta Google o de la app.</p>
+    <div class="quick" id="g-col"></div>
+    <p class="note" style="margin-top:16px"><span class="dot wait"></span>Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</p>
+  </section>
+</main>
+<footer>© <span id="y"></span> Juan Villanueva Canouet</footer>
+
+<script>
+const APPS=[
+ {id:"despacho",ico:"🚌",t:"Módulo de Despacho de Buses",d:"Registra y coordina la salida de buses del depósito en tiempo real para el área de Operaciones.",who:"Operaciones",stack:["Apps Script","Google Sheets"],url:"https://script.google.com/macros/s/AKfycbxB8OxHzGNqEWIZNoSDXW8fdOcOEnX9GST8_drUJ4GkFVWnAgsnPC3jijLm-A8j8RDB/exec",pub:true,login:true},
+ {id:"flota",ico:"🗺️",t:"Control de Flota",d:"Distribución diaria de buses del depósito, con acceso por usuario.",who:"Operaciones",stack:["Python","Flask","Render"],url:"https://control-de-flota-jdpp.onrender.com/",pub:true,login:true,render:true},
+ {id:"solicitudes",ico:"📝",t:"Solicitudes de Conductores",d:"Digitaliza y automatiza parcialmente las solicitudes de vacaciones y días administrativos hacia el Jefe de Operaciones.",who:"Jefe de Operaciones",stack:["Apps Script","Automatización"],url:"https://script.google.com/macros/s/AKfycbzVisnHmGPSx9HZapTOVoq8HFZBxu04YcMjxkbiF5vEiDjCE135snBFqQMEhwL_b9R4lA/exec",pub:true,login:true},
+ {id:"asist-ops",ico:"✅",t:"Control de Asistencia · Operaciones",d:"Registro de asistencia del equipo de operaciones para la línea de supervisión.",who:"Línea de Supervisión",stack:["Apps Script","Google Sheets"],url:"https://script.google.com/macros/s/AKfycbyCAW7N0HxfRgv6Y134nxmrUF2agU6Nz_--wJyxFmITN8ST12tTR8QMsZk-XRiozPA/exec",pub:true,login:true},
+ {id:"semaforo",ico:"🚦",t:"Semáforo PIE Andino",d:"Tablero tipo semáforo para seguimiento de indicadores.",who:"Gestión",stack:["Python","Flask","Render"],url:"https://semaforo-pie-andino.onrender.com/",pub:true,render:true},
+ {id:"voucher",ico:"🎫",t:"Voucher Anexo 5 RED",d:"Generación de vouchers del Anexo 5 para la operación RED.",who:"Administración",stack:["Python","Flask","Render"],url:"https://voucher-anexo5-red.onrender.com/",pub:true,render:true},
+ {id:"asist-cond",ico:"🕒",t:"Ingreso de Asistencia de Conductores",d:"Marcaje de asistencia de conductores.",who:"Conductores",stack:["Apps Script"],url:"https://script.google.com/macros/s/AKfycbxfc-sIITymHjaSTxtxY5xFLMaoZxHD9vHwLyGSdtPBd0ka8a2hZGSHmMtioxNd8wtx/exec",pub:false,login:true}
+];
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("#g-rec").innerHTML=APPS.filter(a=>a.pub).map(a=>`<article class="card"><h3>${a.ico} ${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="tags">${a.stack.map(s=>`<span class="tag">${s}</span>`).join("")}<span class="tag">Usuario: ${esc(a.who)}</span></div><div class="act"><a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir</a>${a.login?'<span class="note">🔒 requiere inicio de sesión</span>':''}${a.render?`<span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:''}</div></article>`).join("");
+$("#g-col").innerHTML=APPS.map(a=>`<a href="${a.url}" target="_blank" rel="noopener"><span class="ico">${a.ico}</span><strong>${esc(a.t)}${a.login?' 🔒':''}</strong><small>${esc(a.who)}</small></a>`).join("");
+$("#y").textContent=new Date().getFullYear();
+// Pestañas (recordar la última y permitir #colaboradores)
+const tabs={rec:[$("#t-rec"),$("#v-rec")],col:[$("#t-col"),$("#v-col")]};
+function show(k){for(const[n,[b,p]]of Object.entries(tabs)){b.setAttribute("aria-selected",n===k);p.hidden=n!==k}try{localStorage.setItem("tab",k)}catch(e){}}
+$("#t-rec").onclick=()=>show("rec");$("#t-col").onclick=()=>show("col");
+let start=location.hash==="#colaboradores"?"col":location.hash==="#portafolio"?"rec":null;
+if(!start)try{start=localStorage.getItem("tab")}catch(e){}
+show(start==="col"?"col":"rec");
+// Precalentar apps de Render (plan gratis duerme)
+APPS.filter(a=>a.render).forEach(a=>{const el=document.querySelector(`[data-st="${a.id}"]`);fetch(a.url,{mode:"no-cors",cache:"no-store"}).then(()=>{if(el)el.innerHTML='<span class="dot ok"></span>lista'}).catch(()=>{if(el)el.innerHTML='<span class="dot wait"></span>sin respuesta'})});
+// PWA
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
+let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;$("#install").style.display="inline-block"});
+$("#install").onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;$("#install").style.display="none"};
+</script>
+</body>
+</html>
