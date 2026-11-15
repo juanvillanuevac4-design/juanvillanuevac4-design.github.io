@@ -56,6 +56,14 @@ h2{font-size:18px;margin:28px 0 12px}
 .quick a strong{font-size:15px}.quick a small{color:var(--mute)}
 .ico{font-size:22px}
 #install{display:none;margin:0 0 16px}
+.help{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 16px}
+.help summary{cursor:pointer;font-weight:600;padding:10px 0}
+.help ol{margin:8px 0 12px;padding-left:20px;font-size:14.5px;color:var(--mute)}
+.help li{margin:4px 0}
+.err{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;background:var(--bg);font-size:14px}
+.err b{display:block}
+.err i{font-style:normal;font-size:28px}
+code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:13px}
 footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
 </style>
 </head>
@@ -93,11 +101,29 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
     <h2>Proyectos</h2>
     <div class="kpi" style="margin-bottom:14px"><span>🔑 Acceso de prueba en todos los aplicativos</span><b style="font-size:17px">Usuario: Invitado · Contraseña: Invitado</b></div>
     <div class="grid" id="g-rec"></div>
+    <details class="help"><summary>¿No puedes acceder a una app de Google?</summary>
+      <p class="note">Si tienes varias cuentas de Google abiertas, puedes ver este error:</p>
+      <div class="err"><i>⚠️</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
+      <ol>
+        <li>Abre el enlace en una <b>ventana de incógnito</b> (Ctrl + Shift + N, o ⌘ + Shift + N en Mac).</li>
+        <li>O borra <code>/u/1/</code> (o <code>/u/2/</code>…) de la dirección y recarga.</li>
+        <li>O usa un perfil del navegador con una sola cuenta de Google.</li>
+      </ol>
+    </details>
   </section>
 
   <section id="v-col" role="tabpanel" aria-labelledby="t-col" hidden>
     <p class="lead">Accesos directos a los aplicativos. Todos requieren iniciar sesión (🔒).</p>
     <div class="quick" id="g-col"></div>
+    <details class="help"><summary>¿No puedes acceder a una app de Google?</summary>
+      <p class="note">Si tienes varias cuentas de Google abiertas, puedes ver este error:</p>
+      <div class="err"><i>⚠️</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
+      <ol>
+        <li>Abre el enlace en una <b>ventana de incógnito</b> (Ctrl + Shift + N, o ⌘ + Shift + N en Mac).</li>
+        <li>O borra <code>/u/1/</code> (o <code>/u/2/</code>…) de la dirección y recarga.</li>
+        <li>O usa un perfil del navegador con una sola cuenta de Google.</li>
+      </ol>
+    </details>
     <p class="note" style="margin-top:16px"><span class="dot wait"></span>Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</p>
   </section>
 </main>
