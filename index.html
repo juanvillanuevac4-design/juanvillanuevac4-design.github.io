@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Juan Patricio Villanueva · Portafolio</title>
 <meta name="description" content="Herramientas digitales para operaciones de transporte: despacho, asistencia, flota y solicitudes de personal.">
-<meta name="theme-color" content="#0f3d5e">
+<meta name="theme-color" content="#1f3b4d">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -13,125 +13,130 @@
 <meta name="apple-mobile-web-app-title" content="JV Apps">
 <meta property="og:title" content="Juan Patricio Villanueva · Portafolio">
 <meta property="og:description" content="Aplicativos que digitalizan la operación de buses.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@500&display=swap">
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--ink:#14202b;--mute:#5b6875;--line:#e2e6ea;--pri:#0f3d5e;--acc:#f5b700;--ok:#1f8a4c;--warn:#b26a00}
-@media (prefers-color-scheme:dark){:root{--bg:#0d141b;--card:#16212b;--ink:#e8eef3;--mute:#9aa8b5;--line:#253441;--pri:#5fa8d9;--acc:#f5b700}}
+:root{--bg:#eef0f1;--panel:#fff;--ink:#1c2328;--mute:#5f6a72;--line:#d5dade;--band:#1f3b4d;--band-ink:#f3f6f8;--sign:#f0a202;--ok:#2f8a57;--warn:#b26a00;
+--f:"Overpass",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--fm:"Overpass Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#111619;--panel:#192126;--ink:#e7ecef;--mute:#9aa6ae;--line:#2b363d;--band:#16303f;--sign:#f2b233;--ok:#4fb47c;--warn:#e0a040;color-scheme:dark}}
 *{box-sizing:border-box}html,body{margin:0}
-body{font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
-a{color:var(--pri)}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px}
-header{background:var(--pri);color:#fff;padding:28px 0 0}
-@media (prefers-color-scheme:dark){header{background:#102a3d}}
-.top{display:flex;gap:16px;align-items:center}
-.av{width:64px;height:64px;border-radius:16px;background:var(--acc);color:#0f3d5e;font-weight:800;font-size:26px;display:grid;place-items:center;flex:none}
-h1{margin:0;font-size:24px;line-height:1.2}
-.sub{opacity:.85;margin:4px 0 0;font-size:15px}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-.links a{color:#fff;border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:999px;text-decoration:none;font-size:14px}
-.tabs{display:flex;gap:4px}
-.tabs button{flex:1;max-width:220px;border:0;background:rgba(255,255,255,.12);color:#fff;padding:12px;font:600 15px system-ui;border-radius:12px 12px 0 0;cursor:pointer}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--f);padding-bottom:env(safe-area-inset-bottom)}
+a{color:inherit}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+header{background:var(--band);color:var(--band-ink);padding-top:env(safe-area-inset-top)}
+.hd{padding-block:36px 24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.sign{font:500 13px var(--fm);color:var(--sign);letter-spacing:.06em;text-transform:uppercase}
+h1{font:800 clamp(28px,4.4vw,44px)/1.05 var(--f);margin:8px 0 10px;letter-spacing:-.01em;text-wrap:balance}
+.sub{margin:0;opacity:.82;max-width:60ch}
+.cta{display:flex;flex-direction:column;gap:8px;align-items:flex-end;font-size:14px}
+.cta a{font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+.strip{display:flex;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15)}
+.strip div{padding:14px 24px 16px 0;margin-right:24px;border-right:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column}
+.strip div:last-child{border:0}
+.strip b{font:800 26px var(--f);font-variant-numeric:tabular-nums}
+.strip span{font-size:13px;opacity:.75}
+.tabs{display:flex;gap:4px;margin-top:8px}
+.tabs button{border:0;background:rgba(255,255,255,.1);color:var(--band-ink);padding:12px 20px;font:600 15px var(--f);cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--bg);color:var(--ink)}
-main{padding:24px 0 40px}
+.tabs button:focus-visible,.btn:focus-visible,.btn2:focus-visible{outline:2px solid var(--sign);outline-offset:2px}
+main .in{padding-block:32px 48px}
+section{display:flex;flex-direction:column;gap:36px}
 section[hidden]{display:none}
-.lead{font-size:17px;color:var(--mute);margin:0 0 20px}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
-.card h3{margin:0;font-size:17px}
-.card p{margin:0;color:var(--mute);font-size:14.5px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--bg);border:1px solid var(--line);color:var(--mute)}
-.card .act{margin-top:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-block;background:var(--pri);color:#fff;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:600;font-size:14px}
-@media (prefers-color-scheme:dark){.btn{color:#0d141b}}
-.note{font-size:12.5px;color:var(--mute)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block;margin-right:4px}
+.demo{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:12px 16px;font-size:14px}
+.demo code,code{font:500 14px var(--fm);background:var(--bg);padding:2px 6px}
+.grp{display:flex;flex-direction:column;gap:14px}
+.grp h2{margin:0;display:flex;align-items:center;gap:12px;font:500 13px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.grp h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:16px}
+.app{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-columns:200px 1fr;min-width:0}
+.app .th{border:0;padding:0;background:var(--bg);border-right:1px solid var(--line);cursor:zoom-in;display:block}
+.app .th img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;aspect-ratio:4/3}
+.app .b{padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.app h3{margin:0;font:600 18px/1.25 var(--f)}
+.app p{margin:0;font-size:14.5px;color:var(--mute)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 12px var(--fm);color:var(--mute);padding-top:4px}
+.pill{border:1px solid var(--line);padding:1px 7px}
+.pill.live{border-color:var(--ok);color:var(--ok)}
+.act{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-block;background:var(--band);color:var(--band-ink);text-decoration:none;padding:7px 14px;font:600 14px var(--f);border:1px solid var(--band)}
+.btn2{background:transparent;border:1px solid var(--line);color:var(--ink);padding:7px 14px;font:600 14px var(--f);cursor:pointer}
+.note{font:500 12px var(--fm);color:var(--mute)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block;margin-right:5px}
 .dot.ok{background:var(--ok)}.dot.wait{background:var(--warn)}
-h2{font-size:18px;margin:28px 0 12px}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
-.kpi b{display:block;font-size:24px;color:var(--pri)}
-.kpi span{font-size:13px;color:var(--mute)}
-.quick{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-.quick a{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px;min-height:96px}
-.quick a strong{font-size:15px}.quick a small{color:var(--mute)}
-.ico{font-size:22px}
-#install{display:none;margin:0 0 16px}
-.help{margin:16px 0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:14px;padding:4px 16px}
+#install{display:none;align-self:flex-start}
+.lead{margin:0;color:var(--mute)}
+.help{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--sign);padding:4px 16px}
 .help summary{cursor:pointer;font-weight:600;padding:10px 0}
 .help ol{margin:8px 0 12px;padding-left:20px;font-size:14.5px;color:var(--mute)}
-.help li{margin:4px 0}
-.err{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;background:var(--bg);font-size:14px}
+.help p{font-size:14px}
+.err{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:12px;margin:8px 0;background:var(--bg);font-size:14px}
+.err i{font:800 18px var(--f);font-style:normal;width:28px;height:28px;display:grid;place-items:center;background:var(--sign);color:#1c2328;flex:none}
 .err b{display:block}
-.err i{font-style:normal;font-size:28px}
-code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:13px}
-dialog{border:0;border-radius:16px;padding:0;max-width:760px;width:calc(100% - 32px);background:var(--card);color:var(--ink)}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-.dlg-h{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
-.dlg-h h3{margin:0;font-size:18px}
-.dlg-b{padding:16px;display:flex;flex-direction:column;gap:12px}
+.quick{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.quick a{background:var(--panel);border:1px solid var(--line);padding:14px 16px;text-decoration:none;display:flex;flex-direction:column;gap:4px;min-height:92px}
+.quick a:hover{border-color:var(--band)}
+.quick strong{font-size:15.5px;line-height:1.3}
+.quick small{font:500 12px var(--fm);color:var(--mute)}
+dialog{border:0;padding:0;max-width:820px;width:calc(100% - 32px);background:var(--panel);color:var(--ink)}
+dialog::backdrop{background:rgba(10,20,28,.7)}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;background:var(--band);color:var(--band-ink)}
+.dlg-h h3{margin:0;font:600 18px var(--f)}
+.dlg-b{padding:18px;display:flex;flex-direction:column;gap:14px}
 .dlg-b p{margin:0;color:var(--mute)}
-.shots{display:grid;gap:12px}
-.shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.shots{display:grid;gap:14px}
+.shot{border:1px solid var(--line);background:var(--bg);margin:0}
 .shot img{width:100%;display:block}
 .shot .ph{padding:40px 16px;text-align:center;color:var(--mute);font-size:14px}
-.btn2{background:transparent;border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;font:600 14px system-ui;cursor:pointer}
-.x{background:none;border:0;font-size:22px;cursor:pointer;color:var(--mute)}
-footer{color:var(--mute);font-size:13px;text-align:center;padding:24px 16px}
+.x{background:none;border:0;font-size:22px;cursor:pointer;color:var(--band-ink)}
+footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
+@media (max-width:640px){.strip div{margin-right:14px;padding-right:14px}.strip b{font-size:22px}.hd{grid-template-columns:1fr}.cta{align-items:flex-start}.app{grid-template-columns:1fr}.app .th{border-right:0;border-bottom:1px solid var(--line)}.app .th img{aspect-ratio:16/9}.tabs button{flex:1}}
 </style>
 </head>
 <body>
 <header>
-  <div class="wrap">
-    <div class="top">
-      <div class="av" aria-hidden="true">JV</div>
-      <div>
-        <h1>Juan Patricio Villanueva Canouet</h1>
-        <p class="sub">Operaciones de transporte · Digitalización de procesos · Apps Script y Python</p>
-      </div>
+  <div class="in hd">
+    <div>
+      <div class="sign">Operaciones de transporte · Digitalización de procesos · Apps Script y Python</div>
+      <h1>Juan Patricio Villanueva Canouet</h1>
+      <p class="sub">Construyo las herramientas que usa la operación diaria: despacho, asistencia del personal, control de flota y solicitudes administrativas. Todos están en uso por equipos de operaciones.</p>
     </div>
-    <div class="links">
-      <a href="mailto:juanvillanuevac4@gmail.com">✉ Correo</a>
-      <a href="https://www.linkedin.com/in/juanvillanuevacanouet8043bb281" target="_blank" rel="noopener">in LinkedIn</a>
-    </div>
-    <nav class="tabs" role="tablist">
-      <button role="tab" id="t-rec" aria-controls="v-rec" aria-selected="true">Portafolio</button>
-      <button role="tab" id="t-col" aria-controls="v-col" aria-selected="false">Acceso rápido</button>
-    </nav>
+    <div class="cta"><a href="https://www.linkedin.com/in/juanvillanuevacanouet8043bb281" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:juanvillanuevac4@gmail.com">juanvillanuevac4@gmail.com</a></div>
   </div>
+  <div class="in"><div class="strip">
+    <div><b>7</b><span>aplicativos en uso</span></div>
+    <div><b>4</b><span>áreas de la operación</span></div>
+    <div><b>3</b><span>con demo abierta</span></div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="t-rec" aria-controls="v-rec" aria-selected="true">Portafolio</button>
+    <button role="tab" id="t-col" aria-controls="v-col" aria-selected="false">Acceso rápido</button>
+  </nav></div>
 </header>
 
-<main class="wrap">
-  <button id="install" class="btn">⬇ Instalar app</button>
-
+<main><div class="in">
   <section id="v-rec" role="tabpanel" aria-labelledby="t-rec">
-    <p class="lead">Diseño y construyo aplicativos que digitalizan la operación diaria de una empresa de buses: despacho, asistencia del personal, control de flota y solicitudes administrativas. Todos están en uso por equipos de operaciones.</p>
-    <div class="kpis">
-      <div class="kpi"><b>7</b><span>aplicativos en producción</span></div>
-      <div class="kpi"><b>2</b><span>stacks: Apps Script y Python/Flask</span></div>
-      <div class="kpi"><b>4</b><span>áreas: despacho, asistencia, flota, RR.HH.</span></div>
-    </div>
-    <h2>Proyectos</h2>
-    <div class="kpi" style="margin-bottom:14px"><span>🔑 Acceso de prueba a las apps web (Flota, Semáforo, Voucher)</span><b style="font-size:17px">Usuario: Invitado · Contraseña: Invitado</b></div>
-    <div class="grid" id="g-rec"></div>
+    <button id="install" class="btn">Instalar app</button>
+    <div class="demo"><b>Prueba las demos</b><span>Usuario <code>Invitado</code></span><span>Clave <code>Invitado</code></span><span style="color:var(--mute)">Control de Flota, Semáforo y Voucher. Los cambios no se guardan.</span></div>
+    <div id="g-rec" style="display:flex;flex-direction:column;gap:36px"></div>
   </section>
 
   <section id="v-col" role="tabpanel" aria-labelledby="t-col" hidden>
-    <p class="lead">Accesos directos a los aplicativos. Todos requieren iniciar sesión (🔒).</p>
+    <p class="lead">Accesos directos a los aplicativos. Todos requieren iniciar sesión.</p>
     <details class="help" open><summary>¿No puedes acceder a una app de Google?</summary>
       <p class="note">Si tienes varias cuentas de Google abiertas, puedes ver este error:</p>
-      <div class="err"><i>⚠️</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
-      <p class="note"><b>Solución:</b> abre el enlace en una ventana de incógnito.</p>
+      <div class="err"><i>!</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
+      <p><b>Solución:</b> abre el enlace en una ventana de incógnito.</p>
       <ol>
         <li><b>Computador:</b> Ctrl + Shift + N (⌘ + Shift + N en Mac), pega el enlace y entra.</li>
         <li><b>Celular:</b> mantén presionado el enlace → «Abrir en pestaña de incógnito» (Chrome) o «Abrir en pestaña privada» (Safari).</li>
       </ol>
     </details>
     <div class="quick" id="g-col"></div>
-    <p class="note" style="margin-top:16px"><span class="dot wait"></span>Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</p>
+    <p class="note"><span class="dot wait"></span>Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</p>
   </section>
-</main>
-<dialog id="dlg"><div class="dlg-h"><h3 id="d-t"></h3><button class="x" aria-label="Cerrar" onclick="dlg.close()">✕</button></div><div class="dlg-b"><p id="d-d"></p><div class="tags" id="d-s"></div><div class="shots" id="d-i"></div><a class="btn" id="d-a" target="_blank" rel="noopener" style="align-self:flex-start">Abrir aplicativo</a></div></dialog>
-<footer>© <span id="y"></span> Juan Patricio Villanueva Canouet</footer>
+  <footer>© <span id="y"></span> Juan Patricio Villanueva Canouet</footer>
+</div></main>
+<dialog id="dlg"><div class="dlg-h"><h3 id="d-t"></h3><button class="x" aria-label="Cerrar" onclick="dlg.close()">✕</button></div><div class="dlg-b"><p id="d-d"></p><div class="meta" id="d-s"></div><div class="shots" id="d-i"></div><a class="btn" id="d-a" target="_blank" rel="noopener" style="align-self:flex-start">Abrir demo</a></div></dialog>
 
 <script>
 const APPS=[
@@ -143,28 +148,26 @@ const APPS=[
  {id:"voucher",ico:"🎫",t:"Voucher Anexo 5 RED",d:"Genera vouchers en PDF, listos para imprimir y recortar, con los horarios de pasada por paradero de cada expedición, a partir del consolidado de los Anexo 5 de todas las unidades de negocio.",who:"Operaciones",stack:["Python","Flask","PDF","Render"],url:"https://voucher-anexo5-red.onrender.com/",shots:3,pub:true,login:true,render:true},
  {id:"asist-cond",shots:2,ico:"🕒",t:"Ingreso de Asistencia de Conductores",d:"Marcaje de asistencia de conductores.",who:"Conductores",stack:["Apps Script"],url:"https://script.google.com/macros/s/AKfycbxfc-sIITymHjaSTxtxY5xFLMaoZxHD9vHwLyGSdtPBd0ka8a2hZGSHmMtioxNd8wtx/exec",priv:true,pub:true,login:true}
 ];
+const GRUPOS=[["Salida del depósito",["despacho","flota"]],["En ruta",["voucher","semaforo"]],["Personal",["asist-cond","asist-ops","solicitudes"]]];
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-$("#g-rec").innerHTML=APPS.filter(a=>a.pub).map(a=>`<article class="card"><h3>${a.ico} ${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="tags">${a.stack.map(s=>`<span class="tag">${s}</span>`).join("")}<span class="tag">Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button>${a.render?`<a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir</a>`:''}${a.priv?'<span class="note">🔒 Acceso privado</span>':a.login?'<span class="note">🔒 Demo: <b>Invitado</b> / <b>Invitado</b></span>':''}${a.render?`<span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:''}</div></article>`).join("");
-$("#g-col").innerHTML=APPS.map(a=>`<a href="${a.url}" target="_blank" rel="noopener"><span class="ico">${a.ico}</span><strong>${esc(a.t)}${a.login?' 🔒':''}</strong><small>${esc(a.who)}</small></a>`).join("");
+const card=a=>`<article class="app"><button class="th" data-res="${a.id}" aria-label="Ver resumen de ${esc(a.t)}"><img src="shots/${a.id}-1.webp" alt="" loading="lazy"></button><div class="b"><h3>${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="meta"><span class="pill live">En producción</span><span>${a.stack.join(" · ")}</span><span>Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button>${a.render?`<a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir demo</a><span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:'<span class="note">Acceso privado</span>'}</div></div></article>`;
+$("#g-rec").innerHTML=GRUPOS.map(([n,ids])=>`<div class="grp"><h2>${n}</h2><div class="row">${ids.map(i=>APPS.find(a=>a.id===i)).filter(a=>a&&a.pub).map(card).join("")}</div></div>`).join("");
+$("#g-col").innerHTML=APPS.map(a=>`<a href="${a.url}" target="_blank" rel="noopener"><strong>${esc(a.t)}</strong><small>${esc(a.who)} · requiere sesión</small></a>`).join("");
 $("#y").textContent=new Date().getFullYear();
-// Resumen fotográfico: shots/<id>-1.webp y shots/<id>-2.webp
 const dlg=$("#dlg");
 document.addEventListener("click",e=>{const b=e.target.closest("[data-res]");if(!b)return;const a=APPS.find(x=>x.id===b.dataset.res);
-$("#d-t").textContent=a.ico+" "+a.t;$("#d-d").textContent=a.d;$("#d-s").innerHTML=a.stack.map(s=>`<span class="tag">${s}</span>`).join("");$("#d-a").href=a.url;$("#d-a").hidden=!a.render;
-$("#d-i").innerHTML=Array.from({length:a.shots||2},(_,i)=>i+1).map(n=>`<figure class="shot" style="margin:0"><img src="shots/${a.id}-${n}.webp" alt="${esc(a.t)}, captura ${n}" loading="lazy" onerror="this.outerHTML='<div class=ph>📷 Captura ${n} próximamente</div>'"></figure>`).join("");
+$("#d-t").textContent=a.t;$("#d-d").textContent=a.d;$("#d-s").innerHTML=a.stack.map(s=>`<span class="pill">${s}</span>`).join("");$("#d-a").href=a.url;$("#d-a").hidden=!a.render;
+$("#d-i").innerHTML=Array.from({length:a.shots||2},(_,i)=>i+1).map(n=>`<figure class="shot"><img src="shots/${a.id}-${n}.webp" alt="${esc(a.t)}, captura ${n}" loading="lazy" onerror="this.outerHTML='<div class=ph>Captura ${n} próximamente</div>'"></figure>`).join("");
 dlg.showModal()});
 dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
-// Pestañas (recordar la última y permitir #colaboradores)
 const tabs={rec:[$("#t-rec"),$("#v-rec")],col:[$("#t-col"),$("#v-col")]};
 function show(k){for(const[n,[b,p]]of Object.entries(tabs)){b.setAttribute("aria-selected",n===k);p.hidden=n!==k}try{localStorage.setItem("tab",k)}catch(e){}}
 $("#t-rec").onclick=()=>show("rec");$("#t-col").onclick=()=>show("col");
 let start=location.hash==="#colaboradores"?"col":location.hash==="#portafolio"?"rec":null;
 if(!start)try{start=localStorage.getItem("tab")}catch(e){}
 show(start==="col"?"col":"rec");
-// Precalentar apps de Render (plan gratis duerme)
 APPS.filter(a=>a.render).forEach(a=>{const el=document.querySelector(`[data-st="${a.id}"]`);fetch(a.url,{mode:"no-cors",cache:"no-store"}).then(()=>{if(el)el.innerHTML='<span class="dot ok"></span>lista'}).catch(()=>{if(el)el.innerHTML='<span class="dot wait"></span>sin respuesta'})});
-// PWA
 if("serviceWorker"in navigator){navigator.serviceWorker.register("sw.js").then(r=>r.update());let rl=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!rl){rl=true;location.reload()}})}
 let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;$("#install").style.display="inline-block"});
 $("#install").onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;$("#install").style.display="none"};
