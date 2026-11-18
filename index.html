@@ -105,7 +105,7 @@ footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
   <div class="in"><div class="strip">
     <div><b>7</b><span>aplicativos en uso</span></div>
     <div><b>4</b><span>áreas de la operación</span></div>
-    <div><b>3</b><span>con demo abierta</span></div>
+    <div><b>4</b><span>con demo abierta</span></div>
   </div>
   <nav class="tabs" role="tablist">
     <button role="tab" id="t-rec" aria-controls="v-rec" aria-selected="true">Portafolio</button>
@@ -116,7 +116,7 @@ footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
 <main><div class="in">
   <section id="v-rec" role="tabpanel" aria-labelledby="t-rec">
     <button id="install" class="btn">Instalar app</button>
-    <div class="demo"><b>Prueba las demos</b><span>Usuario <code>Invitado</code></span><span>Clave <code>Invitado</code></span><span style="color:var(--mute)">Control de Flota, Semáforo y Voucher. Los cambios no se guardan.</span></div>
+    <div class="demo"><b>Prueba las demos</b><span>Usuario <code>Invitado</code></span><span>Clave <code>Invitado</code></span><span style="color:var(--mute)">Despacho, Control de Flota, Semáforo y Voucher. Los cambios no se guardan.</span></div>
     <div id="g-rec" style="display:flex;flex-direction:column;gap:36px"></div>
   </section>
 
@@ -140,7 +140,7 @@ footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
 
 <script>
 const APPS=[
- {id:"despacho",ico:"🚌",t:"Módulo de Despacho de Buses",d:"Registra y coordina la salida de buses del depósito en tiempo real para el área de Operaciones.",who:"Operaciones",stack:["Apps Script","Google Sheets"],url:"https://script.google.com/macros/s/AKfycbxB8OxHzGNqEWIZNoSDXW8fdOcOEnX9GST8_drUJ4GkFVWnAgsnPC3jijLm-A8j8RDB/exec",priv:true,shots:4,pub:true,login:true},
+ {id:"despacho",ico:"🚌",t:"Módulo de Despacho de Buses",d:"Registra y coordina la salida de buses del depósito en tiempo real para el área de Operaciones.",who:"Operaciones",stack:["Node.js","Express","PostgreSQL","Render"],url:"https://despachador.onrender.com/",shots:4,pub:true,login:true,render:true},
  {id:"flota",ico:"🗺️",t:"Control de Flota",d:"Registra y corrige en línea el estado diario de cada bus (terminal, estado operativo y motivo de mantenimiento), con bitácora inalterable de cada cambio y su responsable, y reportes y descargas del estado de la flota en cualquier fecha y hora.",who:"Operaciones",stack:["Python","Flask","Render"],url:"https://control-de-flota-jdpp.onrender.com/",shots:3,pub:true,login:true,render:true},
  {id:"semaforo",ico:"🚦",t:"Semáforo PIE Andino",d:"Digitaliza el control horario de las tareas operativas diarias con alertas verde, amarilla y roja según su cumplimiento. Roles de operador y administrador, trazabilidad de cambios, reglas de días hábiles y feriados, y exportación de datos.",who:"Gestión",stack:["Python","PostgreSQL","Render"],url:"https://semaforo-pie-andino.onrender.com/",shots:4,pub:true,login:true,render:true},
  {id:"solicitudes",shots:4,ico:"📝",t:"Solicitudes de Conductores",d:"Digitaliza y automatiza parcialmente las solicitudes de vacaciones y días administrativos hacia el Jefe de Operaciones.",who:"Jefe de Operaciones",stack:["Apps Script","Automatización"],url:"https://script.google.com/macros/s/AKfycbzVisnHmGPSx9HZapTOVoq8HFZBxu04YcMjxkbiF5vEiDjCE135snBFqQMEhwL_b9R4lA/exec",priv:true,pub:true,login:true},
