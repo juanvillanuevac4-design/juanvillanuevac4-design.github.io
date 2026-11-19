@@ -98,12 +98,12 @@ footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
     <div>
       <div class="sign">Operaciones de transporte · Digitalización de procesos · Apps Script, Python y Node.js</div>
       <h1>Juan Patricio Villanueva Canouet</h1>
-      <p class="sub">Construyo las herramientas que usa la operación diaria: despacho, asistencia del personal, control de flota y solicitudes administrativas. Todos están en uso por equipos de operaciones.</p>
+      <p class="sub">Construyo las herramientas que usa la operación diaria: despacho, asistencia del personal, control de flota y solicitudes administrativas.</p>
     </div>
     <div class="cta"><a href="https://www.linkedin.com/in/juanvillanuevacanouet8043bb281" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:juanvillanuevac4@gmail.com">juanvillanuevac4@gmail.com</a><a href="cv-juan-villanueva.pdf" download="Juan_Villanueva_Canouet_CV.pdf">Descargar CV</a></div>
   </div>
   <div class="in"><div class="strip">
-    <div><b>7</b><span>aplicativos en uso</span></div>
+    <div><b>7</b><span>aplicativos</span></div>
     <div><b>4</b><span>áreas de la operación</span></div>
     <div><b>4</b><span>con demo abierta</span></div>
   </div>
@@ -151,7 +151,7 @@ const APPS=[
 const GRUPOS=[["Salida del depósito",["despacho","flota"]],["En ruta",["voucher","semaforo"]],["Personal",["asist-cond","asist-ops","solicitudes"]]];
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const card=a=>`<article class="app"><button class="th" data-res="${a.id}" aria-label="Ver resumen de ${esc(a.t)}"><img src="shots/${a.id}-1.webp" alt="" loading="lazy"></button><div class="b"><h3>${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="meta"><span class="pill live">En producción</span><span>${a.stack.join(" · ")}</span><span>Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button>${a.render?`<a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir demo</a><span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:'<span class="note">Acceso privado</span>'}</div></div></article>`;
+const card=a=>`<article class="app"><button class="th" data-res="${a.id}" aria-label="Ver resumen de ${esc(a.t)}"><img src="shots/${a.id}-1.webp" alt="" loading="lazy"></button><div class="b"><h3>${esc(a.t)}</h3><p>${esc(a.d)}</p><div class="meta"><span>${a.stack.join(" · ")}</span><span>Usuario: ${esc(a.who)}</span></div><div class="act"><button class="btn2" data-res="${a.id}">Ver resumen</button>${a.render?`<a class="btn" href="${a.url}" target="_blank" rel="noopener">Abrir demo</a><span class="note" data-st="${a.id}"><span class="dot"></span>despertando…</span>`:'<span class="note">Acceso privado</span>'}</div></div></article>`;
 $("#g-rec").innerHTML=GRUPOS.map(([n,ids])=>`<div class="grp"><h2>${n}</h2><div class="row">${ids.map(i=>APPS.find(a=>a.id===i)).filter(a=>a&&a.pub).map(card).join("")}</div></div>`).join("");
 $("#g-col").innerHTML=APPS.map(a=>`<a href="${a.url}" target="_blank" rel="noopener"><strong>${esc(a.t)}</strong><small>${esc(a.who)} · requiere sesión</small></a>`).join("");
 $("#y").textContent=new Date().getFullYear();
