@@ -105,7 +105,7 @@ footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
   <div class="in"><div class="strip">
     <div><b>7</b><span>aplicativos</span></div>
     <div><b>4</b><span>áreas de la operación</span></div>
-    <div><b>5</b><span>con demo abierta</span></div>
+    <div><b>6</b><span>con demo abierta</span></div>
   </div>
   <nav class="tabs" role="tablist">
     <button role="tab" id="t-rec" aria-controls="v-rec" aria-selected="true">Portafolio</button>
@@ -116,7 +116,7 @@ footer{color:var(--mute);font-size:13px;padding-block:8px 32px}
 <main><div class="in">
   <section id="v-rec" role="tabpanel" aria-labelledby="t-rec">
     <button id="install" class="btn">Instalar app</button>
-    <div class="demo"><b>Prueba las demos</b><span>Usuario <code>Invitado</code></span><span>Clave <code>Invitado</code></span><span style="color:var(--mute)">Despacho, Control de Flota, Control de Asistencia, Semáforo y Voucher. Los cambios no se guardan.</span></div>
+    <div class="demo"><b>Prueba las demos</b><span>Usuario <code>Invitado</code></span><span>Clave <code>Invitado</code></span><span style="color:var(--mute)">Despacho, Control de Flota, Control de Asistencia, Solicitudes, Semáforo y Voucher. Los cambios no se guardan.</span></div>
     <div id="g-rec" style="display:flex;flex-direction:column;gap:36px"></div>
   </section>
 
@@ -143,7 +143,7 @@ const APPS=[
  {id:"despacho",ico:"🚌",t:"Módulo de Despacho de Buses",d:"Registra y coordina en tiempo real la salida de buses del depósito, con hora programada vs. real y desvío por salida. Incluye un reporte ejecutivo (ICF e IE INI por línea y franja horaria, tendencia de 7 días y alertas) y un tablero de regularidad con puntualidad de buses y conductores, franjas críticas y detección de buses apelotonados y huecos.",who:"Operaciones",stack:["Node.js","Express","PostgreSQL","Render"],url:"https://despachador.onrender.com/",shots:7,pub:true,login:true,render:true},
  {id:"flota",ico:"🗺️",t:"Control de Flota",d:"Registra y corrige en línea el estado diario de cada bus (terminal, estado operativo y motivo de mantenimiento). Su dashboard muestra buses reportados, operativos, en mantenimiento y disponibilidad, con gráficos por terminal y tipo de bus, el estado de la flota en cualquier fecha y hora, descargas por rango de días y una bitácora inalterable de quién cambió qué.",who:"Operaciones",stack:["Python","Flask","Render"],url:"https://control-de-flota-jdpp.onrender.com/",shots:3,pub:true,login:true,render:true},
  {id:"semaforo",ico:"🚦",t:"Semáforo de Tareas Operativas",d:"Digitaliza el control horario de las tareas operativas diarias con alertas verde, amarilla y roja según su cumplimiento. Roles de operador y administrador, trazabilidad de cambios, reglas de días hábiles y feriados, y exportación de datos.",who:"Gestión",stack:["Python","PostgreSQL","Render"],url:"https://semaforo-pie-andino.onrender.com/",shots:4,pub:true,login:true,render:true},
- {id:"solicitudes",shots:4,ico:"📝",t:"Solicitudes de Conductores",d:"Digitaliza y automatiza parcialmente las solicitudes de vacaciones y días administrativos hacia el Jefe de Operaciones.",who:"Jefe de Operaciones",stack:["Apps Script","Automatización"],url:"https://script.google.com/macros/s/AKfycbzVisnHmGPSx9HZapTOVoq8HFZBxu04YcMjxkbiF5vEiDjCE135snBFqQMEhwL_b9R4lA/exec",priv:true,pub:true,login:true},
+ {id:"solicitudes",shots:4,ico:"📝",t:"Solicitudes y Ausencias de Conductores",d:"Registra las solicitudes de vacaciones, días administrativos y permisos de los conductores y genera el correo al Jefe de Operaciones. Su dashboard muestra quién está fuera cada día, un calendario de 6 semanas y una vista diaria y semanal con el % de vacaciones sobre la dotación contratada. Cada registro guarda quién lo creó, modificó o envió y cuándo, y la base completa se descarga en Excel.",who:"Jefe de Operaciones",stack:["Node.js","Express","PostgreSQL","Render"],url:"https://solicitudes-conductores.onrender.com/",pub:true,login:true,render:true},
  {id:"asist-ops",ico:"✅",t:"Control de Asistencia · Operaciones",d:"Sistema web de control de asistencia para supervisores de operaciones, con dashboards de incidencias y gestión de usuarios.",who:"Línea de Supervisión",stack:["Node.js","Express","Google Sheets","Render"],url:"https://control-asistencia-s7mk.onrender.com/",shots:8,pub:true,login:true,render:true},
  {id:"voucher",ico:"🎫",t:"Voucher Anexo 5 RED",d:"Genera vouchers en PDF, listos para imprimir y recortar, con los horarios de pasada por paradero de cada expedición, a partir del consolidado de los Anexo 5 de todas las unidades de negocio.",who:"Operaciones",stack:["Python","Flask","PDF","Render"],url:"https://voucher-anexo5-red.onrender.com/",shots:3,pub:true,login:true,render:true},
  {id:"asist-cond",shots:2,ico:"🕒",t:"Ingreso de Asistencia de Conductores",d:"App donde el personal administrativo registra la asistencia diaria de los conductores.",who:"Conductores",stack:["Apps Script"],url:"https://script.google.com/macros/s/AKfycbxfc-sIITymHjaSTxtxY5xFLMaoZxHD9vHwLyGSdtPBd0ka8a2hZGSHmMtioxNd8wtx/exec",priv:true,pub:true,login:true}
