@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mesa de Control</title>
+<meta name="description" content="Ingreso único a las aplicaciones de operación.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1f3b4d">
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Mesa de Control">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#eef0f1;--panel:#fff;--ink:#1c2328;--mute:#5f6a72;--line:#d5dade;--band:#1f3b4d;--band2:#17303f;--band-ink:#f3f6f8;--sign:#f0a202;--ok:#2f8a57;--warn:#b26a00;--bad:#b23b3b;
+--f:"Overpass",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--fm:"Overpass Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#111619;--panel:#192126;--ink:#e7ecef;--mute:#9aa6ae;--line:#2b363d;--band:#16303f;--band2:#10242f;--sign:#f2b233;--ok:#4fb47c;--warn:#e0a040;--bad:#e06b6b;color-scheme:dark}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--f);padding-bottom:env(safe-area-inset-bottom)}
+a{color:inherit}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+header{background:linear-gradient(180deg,var(--band),var(--band2));color:var(--band-ink);padding-top:env(safe-area-inset-top)}
+.hd{padding-block:32px 22px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 32px}
+.sign{font:500 12.5px var(--fm);color:var(--sign);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.sign::before{content:"";width:18px;height:2px;background:var(--sign)}
+h1{font:800 clamp(30px,4.6vw,46px)/1.05 var(--f);margin:8px 0 8px;letter-spacing:-.015em}
+.sub{margin:0;opacity:.82}
+.clock{text-align:right;font:500 13px var(--fm);opacity:.85}
+.clock b{display:block;font:800 30px var(--f);font-variant-numeric:tabular-nums;opacity:1;letter-spacing:.01em}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.14)}
+.kpi div{padding:14px 18px 16px 0;display:flex;flex-direction:column}
+.kpi div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.14)}
+.kpi b{font:800 26px var(--f);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px}
+.kpi div>span{font-size:13px;opacity:.75}
+main .in{padding-block:28px 40px;display:flex;flex-direction:column;gap:28px}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.bar p{margin:0;color:var(--mute)}
+.search{position:relative;flex:0 1 300px;min-width:0}
+.search input{width:100%;font:15px var(--f);padding:9px 12px 9px 34px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.search input:focus{outline:2px solid var(--sign);outline-offset:-1px;border-color:transparent}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.tile{position:relative;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--band);padding:16px 16px 14px;text-decoration:none;display:flex;flex-direction:column;gap:10px;min-height:150px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.tile:hover{border-color:var(--band);border-top-color:var(--sign);transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,40,55,.10)}
+.tile:focus-visible{outline:2px solid var(--sign);outline-offset:2px}
+.tile .top{display:flex;justify-content:space-between;align-items:center}
+.ico{width:38px;height:38px;display:grid;place-items:center;background:var(--bg);font-size:20px;border:1px solid var(--line)}
+.go{font:600 18px var(--f);color:var(--mute);transition:transform .15s,color .15s}
+.tile:hover .go{transform:translateX(3px);color:var(--sign)}
+.tile strong{font:600 16px/1.3 var(--f)}
+.tile .ft{margin-top:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;font:500 12px var(--fm);color:var(--mute)}
+.st{display:inline-flex;align-items:center;gap:5px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.dot.ok{background:var(--ok)}.dot.wait{background:var(--warn);animation:p 1.2s infinite}.dot.bad{background:var(--bad)}.dot.g{background:#4285f4}
+@keyframes p{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.dot.wait{animation:none}.tile,.go{transition:none}}
+.empty{display:none;color:var(--mute);margin:0}
+.help{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--sign);padding:2px 18px}
+.help summary{cursor:pointer;font-weight:600;padding:12px 0}
+.help ol{margin:8px 0 14px;padding-left:20px;font-size:14.5px;color:var(--mute)}
+.help p{font-size:14px;margin:8px 0}
+.note{font:500 12px var(--fm);color:var(--mute)}
+.err{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:12px;margin:8px 0;background:var(--bg);font-size:14px}
+.err i{font:800 18px var(--f);font-style:normal;width:28px;height:28px;display:grid;place-items:center;background:var(--sign);color:#1c2328;flex:none}
+.err b{display:block}
+footer{color:var(--mute);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.search{flex-basis:100%}.grid{grid-template-columns:1fr}.tile{min-height:0}.clock{text-align:left}.kpi b{font-size:22px}.kpi div+div{padding-left:12px}.kpi div{padding-right:10px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="in hd">
+    <div>
+      <div class="sign">Acceso colaboradores</div>
+      <h1>Mesa de Control</h1>
+      <p class="sub">Ingreso único a las aplicaciones de operación.</p>
+    </div>
+    <div class="clock"><b id="hora">--:--</b><span id="fecha"></span></div>
+  </div>
+  <div class="in"><div class="kpi">
+    <div><b>8</b><span>aplicaciones</span></div>
+    <div><b><span class="dot ok"></span><span id="k-ok">0</span>/<span id="k-tot">7</span></b><span>en línea ahora</span></div>
+    <div><b id="k-ses">8</b><span>requieren sesión</span></div>
+  </div></div>
+</header>
+
+<main><div class="in">
+  <div class="bar">
+    <p>Accesos directos a los aplicativos. Todos requieren iniciar sesión.</p>
+    <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar aplicación" aria-label="Buscar aplicación"></label>
+  </div>
+
+  <div class="grid" id="g"></div>
+  <p class="empty" id="none">Ninguna aplicación coincide con la búsqueda.</p>
+
+  <details class="help" open><summary>¿No puedes acceder a una app de Google?</summary>
+    <p class="note">Si tienes varias cuentas de Google abiertas, puedes ver este error:</p>
+    <div class="err"><i>!</i><div><b>Google Drive</b>No se pudo abrir el archivo en este momento. Comprueba la dirección e inténtalo de nuevo.</div></div>
+    <p><b>Solución:</b> abre el enlace en una ventana de incógnito.</p>
+    <ol>
+      <li><b>Computador:</b> Ctrl + Shift + N (⌘ + Shift + N en Mac), pega el enlace y entra.</li>
+      <li><b>Celular:</b> mantén presionado el enlace → «Abrir en pestaña de incógnito» (Chrome) o «Abrir en pestaña privada» (Safari).</li>
+    </ol>
+  </details>
+
+  <footer>
+    <span class="note"><span class="dot wait" style="animation:none"></span> Las apps en Render pueden tardar hasta 1 minuto en despertar la primera vez; esta página las precalienta al abrirse.</span>
+    <span>© <span id="y"></span> Mesa de Control</span>
+  </footer>
+</div></main>
+
+<script>
+const APPS=[
+ {id:"despacho",ico:"🚌",t:"Módulo de Despacho de Buses",who:"Operaciones",url:"https://despachador.onrender.com/",render:true},
+ {id:"flota",ico:"🗺️",t:"Control de Flota",who:"Operaciones",url:"https://control-de-flota-jdpp.onrender.com/",render:true},
+ {id:"rutas",ico:"🧭",t:"Optimizador de Rutas",who:"Operaciones",url:"https://optimizador-rutas-demo.onrender.com/",render:true},
+ {id:"semaforo",ico:"🚦",t:"Semáforo de Tareas Operativas",who:"Gestión",url:"https://semaforo-pie-andino.onrender.com/",render:true},
+ {id:"solicitudes",ico:"📝",t:"Solicitudes y Ausencias de Conductores",who:"Jefe de Operaciones",url:"https://solicitudes-conductores.onrender.com/",render:true},
+ {id:"asist-ops",ico:"✅",t:"Control de Asistencia · Operaciones",who:"Línea de Supervisión",url:"https://control-asistencia-s7mk.onrender.com/",render:true},
+ {id:"voucher",ico:"🎫",t:"Voucher Anexo 5 RED",who:"Operaciones",url:"https://voucher-anexo5-red.onrender.com/",render:true},
+ {id:"asist-cond",ico:"🕒",t:"Ingreso de Asistencia de Conductores",who:"Conductores",url:"https://script.google.com/macros/s/AKfycbxfc-sIITymHjaSTxtxY5xFLMaoZxHD9vHwLyGSdtPBd0ka8a2hZGSHmMtioxNd8wtx/exec"}
+];
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("#g").innerHTML=APPS.map(a=>`<a class="tile" data-k="${esc((a.t+" "+a.who).toLowerCase())}" href="${a.url}" target="_blank" rel="noopener"><div class="top"><span class="ico" aria-hidden="true">${a.ico}</span><span class="go" aria-hidden="true">→</span></div><strong>${esc(a.t)}</strong><div class="ft"><span>${esc(a.who)} · requiere sesión</span><span class="st" data-st="${a.id}">${a.render?'<span class="dot wait"></span>despertando':'<span class="dot g"></span>Google'}</span></div></a>`).join("");
+$("#k-tot").textContent=APPS.filter(a=>a.render).length;$("#k-ses").textContent=APPS.length;
+$("#y").textContent=new Date().getFullYear();
+const tick=()=>{const d=new Date();$("#hora").textContent=d.toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit",hour12:false});$("#fecha").textContent=d.toLocaleDateString("es-CL",{weekday:"long",day:"numeric",month:"long"})};tick();setInterval(tick,15000);
+const nf=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"");
+$("#q").addEventListener("input",e=>{const q=nf(e.target.value.trim().toLowerCase());let n=0;document.querySelectorAll(".tile").forEach(t=>{const m=!q||nf(t.dataset.k).includes(q);t.hidden=!m;t.style.display=m?"":"none";n+=m});$("#none").style.display=n?"none":"block"});
+let ok=0;
+APPS.filter(a=>a.render).forEach(a=>{const el=document.querySelector(`[data-st="${a.id}"]`);fetch(a.url,{mode:"no-cors",cache:"no-store"}).then(()=>{el.innerHTML='<span class="dot ok"></span>en línea';$("#k-ok").textContent=++ok}).catch(()=>{el.innerHTML='<span class="dot bad"></span>sin respuesta'})});
+</script>
+</body>
+</html>
